@@ -22,6 +22,8 @@ const Home = () => {
     
     const[wirelessProducts,setWirelessProducts]=useState([])
 
+    const[popularProducts,setPopularProducts]=useState([])
+
     
 
 
@@ -36,6 +38,9 @@ const Home = () => {
         const filteredMobileProducts =products.filter((item) => item.category === "mobile");
 
         const filteredWirelessProducts =products.filter((item) => item.category === "wireless");
+        
+        const filteredPopularProducts=products.filter((item)=>
+        item.category==="watch")
 
         
 
@@ -44,7 +49,8 @@ const Home = () => {
         setBestSalesProducts(filteredBestSalesProducts);
 
         setMobileProducts(filteredMobileProducts);
-        setWirelessProducts(filteredWirelessProducts)
+        setWirelessProducts(filteredWirelessProducts);
+        setPopularProducts(filteredPopularProducts);
 
 
     },[]);
@@ -111,7 +117,7 @@ const Home = () => {
         <section className="timer_count">
             <Container>
                 <Row>
-                    <Col lg='6' md='6'>
+                    <Col lg='6' md='12' className='count_down-col'>
                         <div className="clock_top_content">
                             <h4 className="text-white fs-6 mb-2">Limited Offer</h4>
                             <h3 className="text-white fs-5 mb-3">Quality Arm Chair</h3>
@@ -121,7 +127,7 @@ const Home = () => {
                         <Link to="/shop">Visit Store</Link>
                      </motion.button>
                     </Col>
-                    <Col lg='6' md='6' className='text-end'>
+                    <Col lg='6' md='12' className='text-end counter_img'>
                         <img src={counterImg} alt="" />
                     </Col>
                 </Row>
@@ -129,10 +135,10 @@ const Home = () => {
         </section>
 
 
-        <div className="new-arrovals">
+        <section className="new-arrivals">
             <Container>
                 <Row>
-                    <Col lg="12" className="text-center">
+                    <Col lg="12" className="text-center mb-5">
                         <h2 className="section_title">New Arrivals</h2>
                     </Col>
                    <ProductList data={mobileProducts}/>
@@ -140,7 +146,23 @@ const Home = () => {
                     
                 </Row>
             </Container>
-        </div>
+        </section>
+        <section className="popular_category">
+
+
+         <Container>
+                <Row>
+                    <Col lg="12" className="text-center mb-5">
+                        <h2 className="section_title">Popular in category</h2>
+                    </Col>
+                   <ProductList data={popularProducts}/>
+                   
+                    
+                </Row>
+            </Container>
+
+
+        </section>
       
        </Helmet>
     );
