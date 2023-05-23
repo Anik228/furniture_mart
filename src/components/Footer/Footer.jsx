@@ -19,7 +19,7 @@ const Footer = () => {
                 <div className="logo">
                         <img src={logo} alt="logo" />
                         <div >
-                            <h1 className='text-white'>Anik_Mart</h1>
+                            <h1 className='text-white'>Multi_Mart</h1>
                             
                         </div>
 

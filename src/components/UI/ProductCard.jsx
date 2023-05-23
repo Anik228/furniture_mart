@@ -1,14 +1,13 @@
 import React from 'react'
 
 import {motion} from 'framer-motion'
-import '../styles/product-card.css'
+import '../../styles/product-card.css'
 import {Col} from "reactstrap"
 import {Link} from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 import {useDispatch} from "react-redux";
-import { cartActions } from '../../src/redux/slices/cartSlice'
-
+import { cartActions } from '../../redux/slices/cartSlice'
 
 const ProductCart = ({item}) => {
 
@@ -20,7 +19,7 @@ const ProductCart = ({item}) => {
       id: item.id,
       productName: item.productName,
       price: item.price,
-      image:item.imgUrl,
+      imgUrl:item.imgUrl,
 
     }))
 
